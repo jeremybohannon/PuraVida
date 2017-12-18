@@ -17,6 +17,7 @@ export default {
     fetch('http://localhost:3000/image', {
         method: 'GET'
     }).then(resp => {
+      console.log(resp)
       return resp.blob()
     }).then(resp => {
       this.imageUrl = (window.URL ? URL : webkitURL).createObjectURL(resp);
