@@ -1,5 +1,5 @@
 import Unsplash, { toJson } from 'unsplash-js'
-import * as unsplashKeys from '../config.js'
+import * as unsplashKeys from '../../config.js'
 
 import 'whatwg-fetch'
 import 'isomorphic-fetch'
