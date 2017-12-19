@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <PuraVida/>
+    <div v-if="!imageUrl">Loading...</div>
+    <PuraVida v-if="imageUrl" :imageUrl="imageUrl"/>
   </div>
 </template>
 
@@ -9,8 +10,25 @@ import PuraVida from './components/PuraVida'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      imageUrl: false
+    }
+  },
   components: {
     PuraVida
+  },
+  mounted() {
+    fetch('http://localhost:3000/image?query=mountain', {
+      method: 'GET'
+    }).then(resp => {
+      console.log(resp)
+      return resp.blob()
+    }).then(resp => {
+      this.imageUrl = (window.URL ? URL : webkitURL).createObjectURL(resp);
+    }).catch(err => {
+      console.log(err)
+    })
   }
 }
 </script>

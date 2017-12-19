@@ -10,25 +10,9 @@ import Time from './Time'
 
 export default {
   name: 'PuraVida',
-  data () {
-    return {
-      imageUrl: null
-    }
-  },
+  props: ['imageUrl'],
   components: {
     Time
-  },
-  mounted() {
-    fetch('http://localhost:3000/image?query=mountain', {
-      method: 'GET'
-    }).then(resp => {
-      console.log(resp)
-      return resp.blob()
-    }).then(resp => {
-      this.imageUrl = (window.URL ? URL : webkitURL).createObjectURL(resp);
-    }).catch(err => {
-      console.log(err)
-    })
   }
 }
 
@@ -40,6 +24,15 @@ export default {
   background-size:     cover;
   background-repeat:   no-repeat;
   background-position: center center; 
+}
+
+* {
+  animation: fadein 3s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .center{
