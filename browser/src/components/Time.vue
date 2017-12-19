@@ -32,6 +32,6 @@ name: 'Time',
   font-size: 1000%;
   font-weight: 500;
   color: white;
-  letter-spacing: 1px;
+  letter-spacing: -3px;
 }
 </style>
