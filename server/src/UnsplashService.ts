@@ -1,12 +1,11 @@
 import Unsplash, { toJson } from 'unsplash-js'
+import * as unsplashKeys from '../config.js'
 
 import 'whatwg-fetch'
 import 'isomorphic-fetch'
 
-import * as unsplashKeys from '../config.js'
-
 export default class UnsplashService {
-  private unsplash = null
+  private unsplash: Unsplash
   
   constructor(){
     this.unsplash = new Unsplash({
@@ -17,6 +16,7 @@ export default class UnsplashService {
   }
 
   public getPhotos(): Promise<any> {
+    console.log('[UnsplashService]: Grabbing a photo...')
     return this.unsplash.photos.getRandomPhoto()
     .then(toJson)
     .then(json => {
@@ -24,4 +24,12 @@ export default class UnsplashService {
     });
   }
 
+  public getPhotosByQuery(_query: String): Promise<any> {
+    console.log('[UnsplashService]: Grabbing a photo...')
+    return this.unsplash.photos.getRandomPhoto({query: _query})
+    .then(toJson)
+    .then(json => {
+      return json
+    });
+  }
 }

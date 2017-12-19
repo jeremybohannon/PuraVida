@@ -15,14 +15,18 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', (req, res) => {
-  request("https://images.unsplash.com/photo-1472584069410-35e46830b642?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=697f7bf8a07e06145dd144421758d590").pipe(res)
+  console.log('Default route')
+  request("https://images.unsplash.com/photo-1504394468902-ea647eda589c?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=90cece78b6c9b67bff1a42d1ec4c81a8").pipe(res)
 })
 
 app.get('/image', (req, res) => {
-  let data = unsplashService.getPhotos()
+  let query = JSON.stringify(req.query.query)
+  console.log("Query: " + query)
+  let data = query != null ? unsplashService.getPhotosByQuery(query) : unsplashService.getPhotos()
+
+  // let data = unsplashService.getPhotos()
   data.then(data => {
     console.log("URL: " + data.urls.full)
-
     request(data.urls.full).pipe(res)
   })
 })
