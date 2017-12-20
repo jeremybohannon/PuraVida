@@ -6,7 +6,8 @@ export default {
 name: 'Time',
   data () {
     return {
-      time: "00:00"
+      time: "00:00",
+      militaryTime: false
     }
   },
   mounted() {
@@ -17,6 +18,10 @@ name: 'Time',
       let today = new Date();
       let h = this.checkTime(today.getHours())
       let m = this.checkTime(today.getMinutes())
+      if(!this.militaryTime) {
+        h = h > 12 ? h - 12 : h
+        h = h == 0 ? 12 : h
+      }
       this.time = h + ":" + m
       let t = setTimeout(this.startTime, 1000)
     },

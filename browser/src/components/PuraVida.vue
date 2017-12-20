@@ -1,5 +1,7 @@
 <template>
   <div class="wrapper" v-bind:style="{ backgroundImage: 'url(' + imageUrl + ')' }">
+    <div class="top">
+    </div>
     <div class="center">
       <Time/>
     </div>
@@ -35,10 +37,19 @@ export default {
   to   { opacity: 1; }
 }
 
-.center{
-  display: block;
+.top {
+  position: absolute;
+  top: 0;
+  height: 33%;
+  width: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
   position: absolute;
   top:   35%;
+  height: 33%;
   width: 100%;
   text-align: center;
 }
