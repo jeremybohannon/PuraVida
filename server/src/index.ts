@@ -4,11 +4,15 @@ import * as request from 'request'
 import UnsplashService from './UnsplashService'
 import QuoteService from './QuoteService'
 
+var favicon = require('serve-favicon')
+
 const app = express()
 const port = 3000
 
 const unsplashService = new UnsplashService()
 const quoteService = new QuoteService()
+
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.use(function(req, res, next) {
   res.set("Access-Control-Allow-Origin", "*")
