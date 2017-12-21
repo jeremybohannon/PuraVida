@@ -16,7 +16,7 @@ export default class UnsplashService {
   }
 
   public getPhotos(): Promise<any> {
-    console.log('[UnsplashService]: Grabbing a photo...')
+    console.log('[UnsplashService | getPhotos]: Grabbing a photo...')
     return this.unsplash.photos.getRandomPhoto()
     .then(toJson)
     .then(json => {
@@ -25,7 +25,7 @@ export default class UnsplashService {
   }
 
   public getPhotosByQuery(_query: String): Promise<any> {
-    console.log('[UnsplashService]: Grabbing a photo...')
+    console.log(`[UnsplashService | getPhotosByQuery]: Grabbing a photo with query ${_query}`)
     return this.unsplash.photos.getRandomPhoto({query: _query})
     .then(toJson)
     .then(json => {

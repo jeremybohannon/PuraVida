@@ -33,10 +33,13 @@ name: 'Time',
 </script>
 <style scoped>
 .time {
+  display: flex;
+  align-items: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1000%;
   font-weight: 500;
   color: white;
   letter-spacing: -3px;
+  text-shadow: 0px 2px 1px #000, -1px -1px #000, 1px 1px #000;
 }
 </style>
