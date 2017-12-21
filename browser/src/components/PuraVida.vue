@@ -3,24 +3,34 @@
     <div class="top">
     </div>
     <div class="center">
-      <Time/>
+      <div class="center-center">
+        <Time/>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="bottom-center">
+        <Quote/>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import Time from './Time'
+import Quote from './Quote'
 
 export default {
   name: 'PuraVida',
   props: ['imageUrl'],
   components: {
-    Time
+    Time,
+    Quote
   }
 }
 
 </script>
 <style scoped>
 .wrapper {
+  position: relative;
   height: 100%;
   width:  100%;
   background-size:     cover;
@@ -29,7 +39,7 @@ export default {
 }
 
 * {
-  animation: fadein 3s;
+  animation: fadein 3s ease;
 }
 
 @keyframes fadein {
@@ -38,19 +48,38 @@ export default {
 }
 
 .top {
-  position: absolute;
-  top: 0;
-  height: 33%;
+  display: block;
+  height: 20%;
   width: 100%;
 }
 
 .center {
+  display: block;
+  height: 60%;
+  width: 100%;
+}
+
+.center-center {
+  width: 50%;
+  height: 100%;
+  margin: auto;
+  position: relative;
   display: flex;
   justify-content: center;
-  position: absolute;
-  top:   35%;
-  height: 33%;
+}
+
+.bottom {
+  display: block;
+  height: 20%;
   width: 100%;
-  text-align: center;
+}
+
+.bottom-center {
+  width: 50%;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 </style>

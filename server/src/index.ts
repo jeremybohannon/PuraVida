@@ -2,16 +2,17 @@ import * as express from 'express'
 import * as path from 'path'
 import * as request from 'request'
 import UnsplashService from './UnsplashService'
+import QuoteService from './QuoteService'
 
 const app = express()
 const port = 3000
 
 const unsplashService = new UnsplashService()
+const quoteService = new QuoteService()
 
 app.use(function(req, res, next) {
   res.set("Access-Control-Allow-Origin", "*")
   res.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-  res.set('Cache-Control', "no-store")
   next()
 })
 
@@ -34,6 +35,12 @@ app.get('/image', (req, res) => {
   }).catch(err => {
     console.log("[index | /image] Error: " + err)
   })
+})
+
+app.get('/quote', (req, res) => {
+  let json = quoteService.getRandomQuote()
+  res.set('Content-Type', 'application/json');
+  res.json(json)
 })
 
 app.listen(port, () => console.log(`Listening on port: ${port}`))

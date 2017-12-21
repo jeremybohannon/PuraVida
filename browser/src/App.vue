@@ -19,7 +19,7 @@ export default {
     PuraVida
   },
   mounted() {
-    fetch('http://localhost:3000/image?query=dark,mountain', {
+    fetch('http://localhost:3000/image?query=landscape', {
       method: 'GET'
     }).then(resp => {
       console.log(resp)
@@ -43,5 +43,6 @@ export default {
 #app {
   height: 100vh;
   width: 100vw;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 </style>

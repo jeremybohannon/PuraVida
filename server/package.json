@@ -20,5 +20,8 @@
     "typescript": "^2.6.2",
     "unsplash-js": "^4.8.0",
     "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^8.5.2"
   }
 }

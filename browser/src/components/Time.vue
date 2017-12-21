@@ -35,7 +35,7 @@ name: 'Time',
 .time {
   display: flex;
   align-items: center;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  justify-content: center;
   font-size: 1000%;
   font-weight: 500;
   color: white;
