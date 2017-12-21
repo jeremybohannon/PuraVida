@@ -60,7 +60,7 @@ export default {
 }
 
 .center-center {
-  width: 50%;
+  width: 40%;
   height: 100%;
   margin: auto;
   position: relative;
@@ -75,7 +75,7 @@ export default {
 }
 
 .bottom-center {
-  width: 50%;
+  width: 40%;
   height: 100%;
   margin: auto;
   position: relative;
