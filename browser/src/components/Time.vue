@@ -40,6 +40,5 @@ name: 'Time',
   font-weight: 500;
   color: white;
   letter-spacing: -3px;
-  text-shadow: 0px 2px 1px #000, -1px -1px #000, 1px 1px #000;
 }
 </style>

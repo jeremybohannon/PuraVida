@@ -26,7 +26,11 @@ app.get('/image', (req, res) => {
 
   data.then(data => {
     console.log("URL: " + data.urls.full)
-    request(data.urls.full).pipe(res)
+    request(data.urls.full)
+      .on('response', res => {
+        res.headers['cache-control'] = 'max-age=86400'
+      })
+      .pipe(res);
   }).catch(err => {
     console.log("[index | /image] Error: " + err)
   })

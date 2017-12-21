@@ -19,7 +19,7 @@ export default {
     PuraVida
   },
   mounted() {
-    fetch('http://localhost:3000/image?query=mountain', {
+    fetch('http://localhost:3000/image?query=dark,mountain', {
       method: 'GET'
     }).then(resp => {
       console.log(resp)
