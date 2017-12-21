@@ -37,7 +37,7 @@ name: 'Time',
   align-items: center;
   justify-content: center;
   height: fit-content;
-  font-size: 1000%;
+  font-size: 1120%;
   font-weight: 500;
   color: white;
   letter-spacing: -3px;

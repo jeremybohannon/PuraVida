@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" v-bind:style="{ backgroundImage: 'url(' + imageUrl + ')' }">
+  <div class="wrapper" v-bind:style="{ backgroundImage: 'linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url(' + imageUrl + ')' }">
     <div class="top">
     </div>
     <div class="center">
@@ -66,6 +66,7 @@ export default {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .bottom {
