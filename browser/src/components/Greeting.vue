@@ -1,18 +1,37 @@
 <template>
   <div class="greeting">
-    <h2>Good evening, {{ name }}.</h2>
+    <h2 v-if="greeting">{{ greeting }}, {{ name }}</h2>
   </div>
   
 </template>
 <script>
 export default {
   name: 'Greeting',
-  props: ['name'],
+  props: ['hour', 'name'],
+  watch: { 
+      	hour: function() {
+          this.updateGreeting()
+        }
+  },
   data() {
     return {
-
+      greeting: null
     }
-  }  
+  },
+  mounted() {
+    this.updateGreeting()
+  },
+  methods: {
+    updateGreeting() {
+      if (this.hour < 12) {
+        this.greeting = "Good morning"
+      } else if (this.hour < 16) {
+        this.greeting = "Hello"
+      } else if (this.hour <= 24) {
+        this.greeting = "Good evening"
+      }
+    }
+  }
 }
 </script>
 <style scoped>

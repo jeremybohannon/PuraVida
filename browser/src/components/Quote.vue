@@ -30,6 +30,7 @@ export default {
   justify-content: center;
   align-items: center;
   height: fit-content;
+  width: fit-content;
 }
 
 .quote-text {

@@ -4,8 +4,8 @@
     </div>
     <div class="center">
       <div class="center-center">
-        <Time :militaryTime="militaryTime"/>
-        <Greeting name="name"/>
+        <Time :militaryTime="militaryTime" @updatedHour="updateHour"/>
+        <Greeting v-if="hour != null" :hour="hour" :name="name"/>
       </div>
     </div>
     <div class="bottom">
@@ -30,7 +30,14 @@ export default {
   },
   data() {
     return {
-      militaryTime: false
+      militaryTime: false,
+      hour: null,
+      name: "John"
+    }
+  },
+  methods: {
+    updateHour(hour) {
+      this.hour = hour
     }
   }
 }
@@ -82,7 +89,8 @@ export default {
 }
 
 .bottom-center {
-  width: 40%;
+  width: fit-content;
+  max-width: 60%;
   height: 100%;
   margin: auto;
   position: relative;

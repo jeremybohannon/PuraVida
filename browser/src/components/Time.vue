@@ -18,8 +18,11 @@ props: ['militaryTime'],
   methods: {
     startTime: function () {
       let today = new Date();
-      let h = this.checkTime(today.getHours())
-      let m = this.checkTime(today.getMinutes())
+      let h = this.formatTime(today.getHours())
+      let m = this.formatTime(today.getMinutes())
+      
+      this.$emit('updatedHour', h)
+
       if(!this.militaryTime) {
         h = h > 12 ? h - 12 : h
         h = h == 0 ? 12 : h
@@ -27,7 +30,7 @@ props: ['militaryTime'],
       this.time = h + ":" + m
       let t = setTimeout(this.startTime, 1000)
     },
-    checkTime: function (time) {
+    formatTime: function (time) {
       return time < 10 ? "0" + time : time
     }
   }
