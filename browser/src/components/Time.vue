@@ -18,7 +18,7 @@ props: ['militaryTime'],
   methods: {
     startTime: function () {
       let today = new Date();
-      let h = this.formatTime(today.getHours())
+      let h = today.getHours()
       let m = this.formatTime(today.getMinutes())
       
       this.$emit('updatedHour', h)
