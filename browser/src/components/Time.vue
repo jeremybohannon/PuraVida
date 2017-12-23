@@ -1,13 +1,15 @@
 <template>
-  <div class="time">{{ time }}</div>
+  <div class="time">
+    <h1>{{ time }}</h1>
+  </div>
 </template>
 <script>
 export default {
 name: 'Time',
+props: ['militaryTime'],
   data () {
     return {
       time: "00:00",
-      militaryTime: false
     }
   },
   mounted() {
@@ -37,7 +39,11 @@ name: 'Time',
   align-items: center;
   justify-content: center;
   height: fit-content;
-  font-size: 1120%;
+  width: 100%;
+}
+
+h1 {
+  font-size: 10em;
   font-weight: 500;
   color: white;
   letter-spacing: -3px;

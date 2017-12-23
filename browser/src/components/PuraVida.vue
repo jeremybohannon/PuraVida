@@ -4,7 +4,8 @@
     </div>
     <div class="center">
       <div class="center-center">
-        <Time/>
+        <Time :militaryTime="militaryTime"/>
+        <Greeting name="name"/>
       </div>
     </div>
     <div class="bottom">
@@ -17,13 +18,20 @@
 <script>
 import Time from './Time'
 import Quote from './Quote'
+import Greeting from './Greeting'
 
 export default {
   name: 'PuraVida',
   props: ['imageUrl'],
   components: {
     Time,
+    Greeting,
     Quote
+  },
+  data() {
+    return {
+      militaryTime: false
+    }
   }
 }
 
@@ -60,13 +68,11 @@ export default {
 }
 
 .center-center {
-  width: 40%;
-  height: 100%;
-  margin: auto;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: fit-content;
+  width: 100%;
 }
 
 .bottom {
