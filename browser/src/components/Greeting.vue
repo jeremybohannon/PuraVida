@@ -1,6 +1,6 @@
 <template>
   <div class="greeting">
-    <h2 v-if="greeting">{{ greeting }}, {{ name }}</h2>
+    <h2 v-if="greeting">{{ greeting }}, {{ name }}.</h2>
   </div>
   
 </template>
