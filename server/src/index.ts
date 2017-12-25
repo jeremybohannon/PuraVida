@@ -22,7 +22,7 @@ app.use(function(req, res, next) {
 
 app.get('/', (req, res) => {
   console.log('Default route')
-  request("https://images.unsplash.com/photo-1504394468902-ea647eda589c?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&s=90cece78b6c9b67bff1a42d1ec4c81a8").pipe(res)
+  res.send('Routes: /image, /quote')
 })
 
 app.get('/image', (req, res) => {
