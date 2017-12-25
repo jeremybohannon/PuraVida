@@ -1,6 +1,6 @@
 <template>
   <div class="greeting">
-    <h2 v-if="greeting && name">{{ greeting }}, {{ name }}.</h2>
+    <h2 v-if="greeting && name">{{ greeting }}, {{ name }}{{ punctuation }}</h2>
     <div v-if="!name" class="greeting-new"> 
       <h2 class="getName"> What's your name? </h2>
       <input v-model="newName" type="text" v-on:keyup.13="saveName" >
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       greeting: "Hello",
+      punctuation: ".",
       newName: ""
     }
   },
@@ -28,7 +29,11 @@ export default {
   },
   methods: {
     updateGreeting() {
-      if (this.hour < 12) {
+      this.punctuation = "."
+      if(this.hour < 5){
+        this.greeting = "Working late"
+        this.punctuation = "?"
+      }else if (this.hour < 12) {
         this.greeting = "Good morning"
       } else if (this.hour < 16) {
         this.greeting = "Afternoon"
