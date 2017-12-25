@@ -38,6 +38,7 @@ app.get('/image', (req, res) => {
       .pipe(res);
   }).catch(err => {
     console.log("[index | /image] Error: " + err)
+    res.sendFile(path.resolve('src/public/images/offline.jpeg'))
   })
 })
 
