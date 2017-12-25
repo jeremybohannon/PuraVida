@@ -5,7 +5,7 @@
     <div class="center">
       <div class="center-center">
         <Time :militaryTime="militaryTime" @updatedHour="updateHour"/>
-        <Greeting v-if="hour != null" :hour="hour" :name="name"/>
+        <Greeting :hour="hour" :name="name" @updateName="updateName"/>
       </div>
     </div>
     <div class="bottom">
@@ -18,7 +18,7 @@
 <script>
 import Time from './Time'
 import Quote from './Quote'
-import Greeting from './Greeting'
+import Greeting from './Greeting' 
 
 export default {
   name: 'PuraVida',
@@ -32,13 +32,21 @@ export default {
     return {
       militaryTime: false,
       hour: null,
-      name: "John"
+      name: null
     }
   },
   methods: {
     updateHour(hour) {
       this.hour = hour
+    },
+    updateName(newName) {
+      this.name = newName
+      localStorage.setItem("name", this.name)
     }
+  },
+  mounted() {
+    let name = localStorage.getItem("name")
+    if(name != null) this.name = name
   }
 }
 

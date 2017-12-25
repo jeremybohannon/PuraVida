@@ -38,11 +38,11 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 #app {
   height: 100vh;
   width: 100vw;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 </style>

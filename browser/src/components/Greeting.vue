@@ -1,6 +1,10 @@
 <template>
   <div class="greeting">
-    <h2 v-if="greeting">{{ greeting }}, {{ name }}.</h2>
+    <h2 v-if="greeting && name">{{ greeting }}, {{ name }}.</h2>
+    <div v-if="!name" class="greeting-new"> 
+      <h2 class="getName"> What's your name? </h2>
+      <input v-model="newName" type="text" v-on:keyup.13="saveName" >
+    </div>
   </div>
   
 </template>
@@ -15,7 +19,8 @@ export default {
   },
   data() {
     return {
-      greeting: null
+      greeting: "Hello",
+      newName: ""
     }
   },
   mounted() {
@@ -26,10 +31,13 @@ export default {
       if (this.hour < 12) {
         this.greeting = "Good morning"
       } else if (this.hour < 16) {
-        this.greeting = "Hello"
+        this.greeting = "Afternoon"
       } else if (this.hour <= 24) {
         this.greeting = "Good evening"
       }
+    },
+    saveName() {
+      this.$emit('updateName', this.newName)
     }
   }
 }
@@ -48,5 +56,25 @@ h2 {
   font-weight: 500;
   color: white;
   letter-spacing: -3px;
+}
+
+.greeting-new {
+  display: block;
+  width: 100%;
+}
+
+.getName {
+  display: inline-block;
+}
+
+input[type=text] {
+    width: 25%;
+    min-width: 250px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #fffefec7;
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
 }
 </style>
