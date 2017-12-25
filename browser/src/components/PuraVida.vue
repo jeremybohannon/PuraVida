@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper" v-bind:style="{ backgroundImage: 'linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url(' + imageUrl + ')' }">
     <div class="top">
+      <span class="setting" v-on:click="openSetting"></span>
     </div>
     <div class="center">
       <div class="center-center">
@@ -42,6 +43,9 @@ export default {
     updateName(newName) {
       this.name = newName
       localStorage.setItem("name", this.name)
+    },
+    openSetting(){
+      localStorage.clear()
     }
   },
   mounted() {
@@ -59,15 +63,6 @@ export default {
   background-size:     cover;
   background-repeat:   no-repeat;
   background-position: center center; 
-}
-
-* {
-  animation: fadein 3s ease;
-}
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
 }
 
 .top {
@@ -104,5 +99,24 @@ export default {
   position: relative;
   display: flex;
   justify-content: center;
+}
+
+.setting {
+  display: block;
+  position: relative;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  top: 10%;
+  left: 1%;
+  background-color: #0000003b;
+}
+
+.setting:hover {
+  background-color: #0000008f;
+}
+
+.setting:active {
+  background-color: #000000c7;
 }
 </style>

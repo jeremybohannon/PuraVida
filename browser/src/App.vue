@@ -38,10 +38,16 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  animation: fadein 3s ease;
 }
 
 #app {
   height: 100vh;
   width: 100vw;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 </style>
