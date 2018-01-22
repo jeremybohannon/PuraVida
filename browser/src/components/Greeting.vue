@@ -42,7 +42,8 @@ export default {
       }
     },
     saveName() {
-      this.$emit('updateName', this.newName)
+      console.log(this.newName.trim.length)
+      if (this.newName.trim().length != 0) this.$emit('updateName', this.newName)
     }
   }
 }
