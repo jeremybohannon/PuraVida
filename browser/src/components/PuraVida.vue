@@ -45,7 +45,9 @@ export default {
       localStorage.setItem("name", this.name)
     },
     openSetting(){
+      //TODO change to menu
       localStorage.clear()
+      location.reload()
     }
   },
   mounted() {
