@@ -1,7 +1,9 @@
 <template>
   <div class="wrapper" v-bind:style="{ backgroundImage: 'linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url(' + imageUrl + ')' }">
     <div class="top">
-      <span class="setting" v-on:click="openSetting"></span>
+      <span class="setting" v-on:click="openSetting">
+        <i class="fa fa-cog" aria-hidden="true"></i>
+      </span>
     </div>
     <div class="center">
       <div class="center-center">
@@ -104,21 +106,24 @@ export default {
 }
 
 .setting {
-  display: block;
-  position: relative;
+  display: flex;
   height: 50px;
   width: 50px;
-  border-radius: 100%;
-  top: 10%;
-  left: 1%;
-  background-color: #0000003b;
+  align-items: center;
+  justify-content: center;
 }
 
-.setting:hover {
-  background-color: #0000008f;
+.fa {
+  font-size: 2em;
+  color: #d2d2d270;
 }
 
-.setting:active {
-  background-color: #000000c7;
+.fa:hover {
+  font-size: 2.5em;
+  color: #a7a7a770;
+}
+
+.fa:active {
+  color: #53535370;
 }
 </style>
